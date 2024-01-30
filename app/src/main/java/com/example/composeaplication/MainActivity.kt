@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -65,7 +66,6 @@ fun LoginScreen(
 
     Column(
         Modifier
-            .padding(8.dp)
             .background(color = Color.Cyan)
             .fillMaxSize()
     ) {
@@ -77,8 +77,19 @@ fun LoginScreen(
                 .padding(8.dp)
         )
 
-        OutlinedTextField(value = "User", onValueChange = {user},
-            Modifier
+        OutlinedTextField(
+            value = user,
+            onValueChange = { user = it },
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(id = R.drawable.baseline_account_circle_24),
+                    contentDescription = "icone de conta",
+                    Modifier
+                        .padding(8.dp)
+                        .background(color = Color.White)
+                )
+            },
+            modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(8.dp)
                 .background(color = Color.White)
@@ -104,7 +115,10 @@ fun LoginScreen(
             Text(text = "Manter logado", Modifier.align(Alignment.CenterVertically))
         }
 
-        Button(onClick = { /*TODO*/ }, Modifier.fillMaxWidth().padding(8.dp) ) {
+        Button(onClick = { /*TODO*/ },
+            Modifier
+                .fillMaxWidth()
+                .padding(8.dp) ) {
 
             Text(text = "Logar")
         }
