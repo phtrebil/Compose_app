@@ -97,13 +97,18 @@ fun LoginScreen(
         )
 
         OutlinedTextField(value = "Password", onValueChange = {password},
-            Modifier
+            modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(8.dp)
                 .background(color = Color.White)
-                .fillMaxWidth()
+                .fillMaxWidth(),
+            leadingIcon = Icon(painter = painterResource(id = R.drawable.baseline_password_24),
+            contentDescription = "icone de conta",
+            Modifier
+                .padding(8.dp)
+                .background(color = Color.White)
             )
-
+        )
         Row(){
 
             Checkbox(checked = isChecked, onCheckedChange = {
