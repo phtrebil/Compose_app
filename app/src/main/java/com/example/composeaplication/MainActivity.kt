@@ -78,7 +78,7 @@ fun LoginScreen(
         )
 
         OutlinedTextField(
-            value = user,
+            value = "User",
             onValueChange = { user = it },
             leadingIcon = {
                 Icon(
@@ -102,12 +102,13 @@ fun LoginScreen(
                 .padding(8.dp)
                 .background(color = Color.White)
                 .fillMaxWidth(),
-            leadingIcon = Icon(painter = painterResource(id = R.drawable.baseline_password_24),
+            leadingIcon = {
+                Icon(painter = painterResource(id = R.drawable.baseline_password_24),
             contentDescription = "icone de conta",
             Modifier
                 .padding(8.dp)
                 .background(color = Color.White)
-            )
+            )}
         )
         Row(){
 
