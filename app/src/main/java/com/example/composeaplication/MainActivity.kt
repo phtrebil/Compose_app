@@ -30,6 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.composeaplication.ui.screen.LoginScreen
 import com.example.composeaplication.ui.theme.ComposeAplicationTheme
 
 class MainActivity : ComponentActivity() {
@@ -44,89 +45,6 @@ class MainActivity : ComponentActivity() {
                     LoginScreen()
                 }
             }
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun LoginScreen(
-){
-    var user by remember {
-        mutableStateOf("")
-    }
-    var password by remember {
-        mutableStateOf("")
-    }
-
-    var isChecked by remember {
-        mutableStateOf(false)
-    }
-
-
-    Column(
-        Modifier
-            .background(color = Color.Cyan)
-            .fillMaxSize()
-    ) {
-
-        Image(painter = painterResource(id = R.drawable.logo), contentDescription = "Logo do app",
-            Modifier
-                .size(200.dp)
-                .align(Alignment.CenterHorizontally)
-                .padding(8.dp)
-        )
-
-        OutlinedTextField(
-            value = "User",
-            onValueChange = { user = it },
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(id = R.drawable.baseline_account_circle_24),
-                    contentDescription = "icone de conta",
-                    Modifier
-                        .padding(8.dp)
-                        .background(color = Color.White)
-                )
-            },
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(8.dp)
-                .background(color = Color.White)
-                .fillMaxWidth()
-        )
-
-        OutlinedTextField(value = "Password", onValueChange = {password},
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(8.dp)
-                .background(color = Color.White)
-                .fillMaxWidth(),
-            leadingIcon = {
-                Icon(painter = painterResource(id = R.drawable.baseline_password_24),
-            contentDescription = "icone de conta",
-            Modifier
-                .padding(8.dp)
-                .background(color = Color.White)
-            )}
-        )
-        Row(){
-
-            Checkbox(checked = isChecked, onCheckedChange = {
-                isChecked = it
-            }, Modifier
-                .padding(4.dp)
-                )
-
-            Text(text = "Manter logado", Modifier.align(Alignment.CenterVertically))
-        }
-
-        Button(onClick = { /*TODO*/ },
-            Modifier
-                .fillMaxWidth()
-                .padding(8.dp) ) {
-
-            Text(text = "Logar")
         }
     }
 }
