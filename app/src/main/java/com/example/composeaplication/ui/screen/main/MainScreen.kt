@@ -12,7 +12,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.composeaplication.R
 import com.example.composeaplication.ui.theme.ComposeAplicationTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -42,6 +44,13 @@ fun SmallTopAppBarExample() {
                         Icon(
                             tint = Color.White,
                             imageVector = Icons.Filled.Search,
+                            contentDescription = "Search icon"
+                        )
+                    }
+                    IconButton(onClick = { /*TODO*/ }) {
+                        Icon(
+                            tint = Color.White,
+                            painter = painterResource(id = R.drawable.baseline_filter_alt_24),
                             contentDescription = "Search icon"
                         )
                     }
