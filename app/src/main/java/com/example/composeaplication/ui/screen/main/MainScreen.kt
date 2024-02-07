@@ -1,5 +1,11 @@
 package com.example.composeaplication.ui.screen.main
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Search
@@ -11,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,43 +29,54 @@ import com.example.composeaplication.ui.theme.ComposeAplicationTheme
 fun SmallTopAppBarExample() {
     Scaffold(
         topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = Color.Blue,
-                    titleContentColor = Color.White,
-                ),
-                title = {
-                    Text("Small Top App Bar")
-                },
-                navigationIcon = {
-                    IconButton(onClick = { /* do something */ }) {
-                        Icon(
-                            tint = Color.White,
-                            imageVector = Icons.Filled.Menu,
-                            contentDescription = "Localized description",
-                        )
-                    }
-                },
-                actions = {
-                    IconButton(onClick = { /*TODO*/ }) {
-                        Icon(
-                            tint = Color.White,
-                            imageVector = Icons.Filled.Search,
-                            contentDescription = "Search icon"
-                        )
-                    }
-                    IconButton(onClick = { /*TODO*/ }) {
-                        Icon(
-                            tint = Color.White,
-                            painter = painterResource(id = R.drawable.baseline_filter_alt_24),
-                            contentDescription = "Search icon"
-                        )
-                    }
+            TopAppBar(colors = TopAppBarDefaults.smallTopAppBarColors(
+                containerColor = Color.Blue,
+                titleContentColor = Color.White,
+            ), title = {
+                Text("Small Top App Bar")
+            }, navigationIcon = {
+                IconButton(onClick = { /* do something */ }) {
+                    Icon(
+                        tint = Color.White,
+                        imageVector = Icons.Filled.Menu,
+                        contentDescription = "Localized description",
+                    )
                 }
-            )
+            }, actions = {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(
+                        tint = Color.White,
+                        imageVector = Icons.Filled.Search,
+                        contentDescription = "Search icon"
+                    )
+                }
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(
+                        tint = Color.White,
+                        painter = painterResource(id = R.drawable.baseline_filter_alt_24),
+                        contentDescription = "Search icon"
+                    )
+                }
+            })
         },
     ) {
         it.calculateTopPadding()
+    }
+}
+
+@Composable
+fun Categorias() {
+    Row(
+        Modifier
+            .background(color = Color.Blue)
+            .fillMaxWidth()
+            .verticalScroll(rememberScrollState())
+    ) {
+        Text(text = "Categoria 1", color = Color.White)
+        Text(text = "Categoria 2", color = Color.White)
+        Text(text = "Categoria 3", color = Color.White)
+        Text(text = "Categoria 4", color = Color.White)
+        Text(text = "Categoria 5", color = Color.White)
     }
 }
 
@@ -66,6 +84,10 @@ fun SmallTopAppBarExample() {
 @Composable
 fun LoginPreview() {
     ComposeAplicationTheme {
-        SmallTopAppBarExample()
+        Column {
+
+            Categorias()
+
+        }
     }
 }
