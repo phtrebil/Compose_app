@@ -1,6 +1,7 @@
 package com.example.composeaplication.ui.screen.main
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -70,7 +71,7 @@ fun Categorias() {
         Modifier
             .background(color = Color.Blue)
             .fillMaxWidth()
-            .verticalScroll(rememberScrollState())
+            .horizontalScroll(rememberScrollState())
     ) {
         Text(text = "Categoria 1", color = Color.White)
         Text(text = "Categoria 2", color = Color.White)
@@ -84,10 +85,6 @@ fun Categorias() {
 @Composable
 fun LoginPreview() {
     ComposeAplicationTheme {
-        Column {
 
-            Categorias()
-
-        }
     }
 }
