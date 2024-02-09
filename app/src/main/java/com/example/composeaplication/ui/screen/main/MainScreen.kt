@@ -28,41 +28,46 @@ import com.example.composeaplication.ui.theme.ComposeAplicationTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SmallTopAppBarExample() {
-    Scaffold(
-        topBar = {
-            TopAppBar(colors = TopAppBarDefaults.smallTopAppBarColors(
-                containerColor = Color.Blue,
-                titleContentColor = Color.White,
-            ), title = {
-                Text("Small Top App Bar")
-            }, navigationIcon = {
-                IconButton(onClick = { /* do something */ }) {
-                    Icon(
-                        tint = Color.White,
-                        imageVector = Icons.Filled.Menu,
-                        contentDescription = "Localized description",
-                    )
-                }
-            }, actions = {
-                IconButton(onClick = { /*TODO*/ }) {
-                    Icon(
-                        tint = Color.White,
-                        imageVector = Icons.Filled.Search,
-                        contentDescription = "Search icon"
-                    )
-                }
-                IconButton(onClick = { /*TODO*/ }) {
-                    Icon(
-                        tint = Color.White,
-                        painter = painterResource(id = R.drawable.baseline_filter_alt_24),
-                        contentDescription = "Search icon"
-                    )
-                }
-            })
-        },
-    ) {
-        it.calculateTopPadding()
+    Column {
+        Scaffold(
+            topBar = {
+                TopAppBar(colors = TopAppBarDefaults.smallTopAppBarColors(
+                    containerColor = Color.Blue,
+                    titleContentColor = Color.White,
+                ), title = {
+                    Text("Small Top App Bar")
+                }, navigationIcon = {
+                    IconButton(onClick = { /* do something */ }) {
+                        Icon(
+                            tint = Color.White,
+                            imageVector = Icons.Filled.Menu,
+                            contentDescription = "Localized description",
+                        )
+                    }
+                }, actions = {
+                    IconButton(onClick = { /*TODO*/ }) {
+                        Icon(
+                            tint = Color.White,
+                            imageVector = Icons.Filled.Search,
+                            contentDescription = "Search icon"
+                        )
+                    }
+                    IconButton(onClick = { /*TODO*/ }) {
+                        Icon(
+                            tint = Color.White,
+                            painter = painterResource(id = R.drawable.baseline_filter_alt_24),
+                            contentDescription = "Search icon"
+                        )
+                    }
+                })
+                Categorias()
+            },
+        ) {
+            it.calculateBottomPadding()
+        }
+
     }
+
 }
 
 @Composable

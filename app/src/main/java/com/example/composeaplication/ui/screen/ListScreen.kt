@@ -44,6 +44,5 @@ fun Greeting() {
 fun GreetingPreview() {
     ComposeAplicationTheme {
         Greeting()
-        Categorias()
     }
 }
